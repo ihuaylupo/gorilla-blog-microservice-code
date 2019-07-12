@@ -1,0 +1,41 @@
+server:
+  port: 8762
+
+spring:
+  application:
+    name: zuul-server
+ 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+zuul:
+  #Service will be mapped under the /api URI
+  #prefix: /api
+  # The ignoredServices disable accessing services using service name
+  # with these they should be only accessed through the path we defined below.
+  ignoredServices: '*'
+  routes:
+    product-service:
+      path: /products/**
+      service-id: product-service
+    order-service:
+      path: /orders/**
+      service-id: order-service
+    auth-service:
+      path: /authentication/**
+      service-id: auth-service
+      strip-prefix: true
+      sensitive-headers: Cookie,Set-Cookie
+ribbon:
+    ConnectTimeout: 1000
+    ReadTimeout: 3000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 11000

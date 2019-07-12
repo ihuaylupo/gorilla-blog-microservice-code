@@ -1,0 +1,33 @@
+/.metadata/
+RemoteSystemsTempFiles/
+*.class
+.classpath
+.project
+.settings/
+**/RemoteSystemsTempFiles/
+.mvn/
+**/.mvn
+./RemoteSystemsTempFiles/
+*.iml
+*.ipr
+*.iws
+.idea/
+.DS_Store/
+/target
+/target
+/target/
+**/target/
+.DS_Store
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
